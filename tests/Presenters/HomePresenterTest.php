@@ -27,8 +27,7 @@ final class HomePresenterTest extends TestCase
         $primes = $presenter->generatePrimes(-1);
         $this->assertCount(0, $primes);
 
-        // Test pro případ, kdy časový limit je překročen
-//        $this->expectException(Exception::class);
-//        $presenter->generatePrimes(1000000);
+        $this->expectException(Exception::class);
+        $presenter->generatePrimes(1000000);
     }
 }

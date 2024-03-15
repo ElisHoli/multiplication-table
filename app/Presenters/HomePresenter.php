@@ -39,7 +39,7 @@ final class HomePresenter extends Nette\Application\UI\Presenter
     /**
      * @throws Exception
      */
-    public function numberFormSucceeded(Form $form, array $values): void
+    protected function numberFormSucceeded(Form $form, array $values): void
     {
         try {
             $this->primes = $this->generatePrimes($values['count']);

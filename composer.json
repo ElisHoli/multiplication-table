@@ -22,7 +22,6 @@
 	},
 	"require-dev": {
 		"nette/tester": "^2.5",
-		"symfony/thanks": "^1",
 		"phpunit/phpunit": "^11.0"
 	},
 	"autoload": {
@@ -32,9 +31,6 @@
 	},
 	"minimum-stability": "stable",
 	"config": {
-		"allow-plugins": {
-			"symfony/thanks": true
-		}
 	},
 	"scripts": {
 		"test": "phpunit tests"

@@ -4,9 +4,16 @@ Tento projekt je aplikace napsaná v PHP s využitím frameworku Nette, která g
 
 ## Instalace
 
-1. Naklonujte si tento repozitář do svého pracovního adresáře:
+1. Naklonujte si tento repozitář do svého pracovního adresáře pomocí SSH:
+
 ```
-git clone TODO
+git clone git@github.com:ElisHoli/multiplication-table.git
+```
+
+nebo pomocí HTTPS:
+
+```
+git clone https://github.com/ElisHoli/multiplication-table.git
 ```
 
 2. Přejděte do adresáře projektu:
@@ -18,6 +25,7 @@ cd multiplikacni-tabulka
 ```
 composer install
 ```
+
 
 ## Spuštění
 
