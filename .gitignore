@@ -1,0 +1,10 @@
+config/local.neon
+.idea/
+/temp/
+/bin/
+/log/
+/vendor/
+*.log
+/vendor/autoload.php
+/www/index.php
+.env.local

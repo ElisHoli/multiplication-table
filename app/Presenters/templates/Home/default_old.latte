@@ -1,0 +1,34 @@
+{block content}
+    <h1>Multiplikační tabulka prvočísel</h1>
+
+    <div>
+        {control numberForm}
+    </div>
+
+    <div n:snippet="primesSnippet">
+        {if $primes}
+            <p>Zobrazuji multiplikační tabulku prvních {$n} prvočísel:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Prvočíslo</th>
+                        <th>Multiplikační tabulka</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {foreach $primes as $prime}
+                        <tr>
+                            <td>{$prime}</td>
+                            <td>
+                                {foreach range(1, 10) as $factor}
+                                    {$prime} x {$factor} = {$prime * $factor}<br>
+                                {/foreach}
+                            </td>
+                        </tr>
+                    {/foreach}
+                </tbody>
+            </table>
+        {/if}
+    </div>
+{/block}

@@ -1,0 +1,64 @@
+{block content}
+    <div class="container my-3">
+        <form n:name="numberForm" novalidate>
+            <div class="alert alert-danger alert-dismissible" n:foreach="$form->getErrors() as $error">
+              <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+             {$error}
+            </div>
+
+            <div class="row g-2 my-3 justify-content-center align-items-center">
+                <div class="form-floating col-auto">
+                    {input count, class => "form-control", placeholder => "10"}
+                    {label count, class => "form-label"}Počet prvočísel{/label}
+                </div>
+                <div class="col-auto">
+                    {input submit, class: "btn btn-primary btn-lg"}
+                </div>
+            </div>
+        </form>
+
+        <div id="spinner" role="status" class="d-none justify-content-center align-items-center mt-5">
+            <div class="spinner-border text-primary"></div>
+            <span class="ms-2 text-primary">Načítám prvočísla...</span>
+        </div>
+
+        <div n:snippet="primesSnippet">
+            {if $primes}
+                <div class="row">
+                    {foreach $primes as $prime}
+                        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 my-3">
+                            <h3>{$prime}</h3>
+                            {foreach range(1, 10) as $factor}
+                                {$prime} × {$factor} = {$prime * $factor}<br>
+                            {/foreach}
+                        </div>
+                    {/foreach}
+                </div>
+            {/if}
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          document.getElementById('frm-numberForm').addEventListener('submit', function() {
+            document.getElementById('spinner').classList.replace('d-none','d-flex')
+            document.getElementById('snippet--primesSnippet').style.display = 'none';
+          });
+        });
+
+        var alertDismissible = document.querySelector(".alert-dismissible");
+        if (alertDismissible) {
+            var opacity = 1;
+            setTimeout(function() {
+                var intervalId = setInterval(function() {
+                    if (opacity > 0) {
+                        alertDismissible.style.opacity = opacity;
+                        opacity -= 0.1;
+                    } else {
+                        clearInterval(intervalId);
+                        alertDismissible.style.display = "none";
+                    }
+                }, 50);
+            }, 2000);
+        }
+    </script>
+{/block}
